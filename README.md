@@ -9,7 +9,7 @@ MyRetail is a REST style API that provides product informaton including pricing 
 ######All the setup commands given below assume linux environment.
 
 ##Setup
-###MongoDB -
+###MongoDB
 The project uses MongoDB to store the pricing details.
 Install MongoDB based on the environment specific documentation given [here](https://www.mongodb.com/download-center)
 After succesful installation and start the server, we need to seed the data with some sample pricing.
@@ -24,7 +24,7 @@ Steps to seed the data
   2. use test - Switch the database to test
   3. db.price.find() - This command should display all the records in test database
 
-###Webapplication
+###Web application
 The web application hosting the REST API is build using spring boot. The final executable jar is uploaded in the repository.
 To run the web application, download the jar file and execute the following command
 
