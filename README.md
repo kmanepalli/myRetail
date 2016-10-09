@@ -2,9 +2,10 @@
 MyRetail is a REST style API that provides product informaton including pricing details. The API uses a third-party API (Target) to fetch the product details. The pricing details are retrieved from MongoDB that stores the price information.
 
 ##Technologies
-Java-1.8
-MongoDB
-Spring-boot
+1. Java-1.8
+2. MongoDB
+3. Spring-boot
+
 ######All the setup commands given below assume linux environment.
 
 ##Setup
