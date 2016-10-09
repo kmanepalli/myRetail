@@ -28,6 +28,9 @@ To run the web application, download the jar file and execute the following comm
  The server by default stars on port 8080.
  
 #Accessing the REST API
+###Search
 Product details can be search by accessing this url
 http://localhost:8080/product/<product_id>
+###Update Price
+curl -v -H "Content-Type:application/json" -X PUT http://localhost:8080/product/<product_id> -d '{"value":234.99,"currency":"USD"}'
  
