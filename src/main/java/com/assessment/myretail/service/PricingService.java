@@ -32,4 +32,17 @@ public class PricingService {
 		}
 		return price;
 	}
+	
+	
+	public boolean updatePrice(Long productId,Price price) {
+		boolean acknowledged=false;
+		try {
+			
+			acknowledged = priceRepo.updatePriceByProductId(productId,price);
+
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return acknowledged;
+	}
 }

@@ -6,7 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assessment.myretail.model.Price;
@@ -38,17 +40,25 @@ public class ProductController {
 			throws JsonProcessingException, IOException,
 			CannotRetrieveProductException {
 		Product product = productService.getProduct(id);
-		addPrice(id, product);
+		updateProductWithPrice(id, product);
 		return product;
 	}
 
+	@RequestMapping(method = RequestMethod.PUT, value = "/product/{id}", headers = "Content-Type=application/json")
+	public String updatePrice(@PathVariable long id, @RequestBody Price price) {
+		if (pricingService.updatePrice(id, price)) {
+			return "Price updated Successfully";
+		}
+		return "Unable to update the price";
+
+	}
 	/**
-	 * Fetch product price from PricingService
+	 * Update product object with price from PricingService
 	 * 
 	 * @param id
 	 * @param product
 	 */
-	private void addPrice(long id, Product product) {
+	private void updateProductWithPrice(long id, Product product) {
 		try {
 			Price price = pricingService.getPrice(id);
 			product.setPrice(price);
