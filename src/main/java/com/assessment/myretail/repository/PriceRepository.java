@@ -25,9 +25,7 @@ public class PriceRepository {
 	 * @return Price
 	 */
 	public Price findByProductId(Long productId) {
-		Query query2 = new Query();
-		query2.addCriteria(Criteria.where("productId").is(productId));
-		Price price = mongoTemplate.findOne(query2, Price.class);
+		Price price = mongoTemplate.findOne(buildQuery(productId), Price.class);
 		return price;
 	}
 
@@ -38,13 +36,22 @@ public class PriceRepository {
 	 * @return boolean
 	 */
 	public boolean updatePriceByProductId(Long productId,Price price) {
-		Query query2 = new Query();
-		query2.addCriteria(Criteria.where("productId").is(productId));
 		Update update=new Update();
 		update.set("value",price.getValue());
 		update.set("currency",price.getCurrency());
 		
-		WriteResult result = mongoTemplate.updateFirst(query2, update, Price.class);
+		WriteResult result = mongoTemplate.updateFirst(buildQuery(productId), update, Price.class);
 		return result.wasAcknowledged();
+	}
+	
+	/**
+	 * Common code to build the Query
+	 * @param productId
+	 * @return Query
+	 */
+	private Query buildQuery(Long productId) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("productId").is(productId));
+		return query;
 	}
 }

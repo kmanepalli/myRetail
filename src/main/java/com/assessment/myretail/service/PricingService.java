@@ -33,7 +33,12 @@ public class PricingService {
 		return price;
 	}
 	
-	
+	/**
+	 * Update Price using PriceRepository
+	 * @param productId
+	 * @param price
+	 * @return boolean
+	 */
 	public boolean updatePrice(Long productId,Price price) {
 		boolean acknowledged=false;
 		try {

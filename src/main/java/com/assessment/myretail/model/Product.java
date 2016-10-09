@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
- * Price Model
+ * Product Model
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -17,7 +17,6 @@ public class Product {
 	private Price price;
 
 	public Product() {
-
 	}
 
 	public long getId() {

@@ -52,6 +52,7 @@ public class ProductController {
 		return "Unable to update the price";
 
 	}
+	
 	/**
 	 * Update product object with price from PricingService
 	 * 

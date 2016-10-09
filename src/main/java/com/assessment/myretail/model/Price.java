@@ -1,15 +1,17 @@
 package com.assessment.myretail.model;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Product Model
+ *
+ */
 public class Price {
 
 	public String currency;
 	public double value;
 	public Long productId;
-	
+
 	public String getCurrency() {
 		return currency;
 	}
