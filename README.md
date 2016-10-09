@@ -27,8 +27,8 @@ Steps to seed the data
 ###Webapplication
 The web application hosting the REST API is build using spring boot. The final executable jar is uploaded in the repository.
 To run the web application, download the jar file and execute the following command
-  java -jar myRetail-0.1.0.jar 
- The server by default stars on port 8080.
+
+The server by default stars on port 8080.
  
 ##Accessing the REST API
 ###Search
