@@ -18,7 +18,7 @@ Steps to seed the data
 
 1. Sample pricing data is available in the pricing-data.json
 2. Import the Pricing data
-  1. mongoimport --db test --collection price --drop --file <price-data.json>
+  1. mongoimport --db test --collection price --drop --file file_path price-data.json
 3. Verify the import by using mongo console
   1. mongo - Start the mongo console
   2. use test - Switch the database to test
@@ -35,7 +35,7 @@ The server by default stars on port 8080.
 ##Accessing the REST API
 ###Search
 Product details can be search by accessing this url
-http://localhost:8080/product/<product_id>
+http://localhost:8080/product/product_id
 ###Update Price
-curl -v -H "Content-Type:application/json" -X PUT http://localhost:8080/product/<product_id> -d '{"value":234.99,"currency":"USD"}'
+curl -v -H "Content-Type:application/json" -X PUT http://localhost:8080/product/product_id -d '{"value":234.99,"currency":"USD"}'
  
