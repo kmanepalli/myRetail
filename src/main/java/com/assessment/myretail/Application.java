@@ -11,10 +11,11 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @ComponentScan
 @EnableMongoRepositories("com.assessment.myretail.repository")
 public class Application {
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
+	/*
+	 * Making the application executable.
+	 */
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
 }

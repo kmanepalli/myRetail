@@ -8,18 +8,25 @@ import org.springframework.stereotype.Service;
 import com.assessment.myretail.model.Price;
 import com.assessment.myretail.repository.PriceRepository;
 
-
 @Service
 public class PricingService {
-	private static final Logger log = LoggerFactory.getLogger(ProductService.class);
+	private static final Logger log = LoggerFactory
+			.getLogger(ProductService.class);
 
 	@Autowired
-    PriceRepository priceRepo;
-	public Price getPrice(Long productId){
+	PriceRepository priceRepo;
+	
+	/**
+	 * Fetch Price data from the Pricing Repository.
+	 * @param productId
+	 * @return Price
+	 */
+	public Price getPrice(Long productId) {
 		Price price = null;
 		try {
-			price =priceRepo.findByProductId(productId);
 			
+			price = priceRepo.findByProductId(productId);
+
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}

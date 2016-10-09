@@ -1,6 +1,5 @@
 package com.assessment.myretail.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Price {
@@ -8,10 +7,10 @@ public class Price {
 	public String currency;
 	public double value;
 	public Long productId;
-	Price(Long productId, double value, String currency){
-		this.productId=productId;
-		this.value=value;
-		this.currency=currency;
+	Price(Long productId, double value, String currency) {
+		this.productId = productId;
+		this.value = value;
+		this.currency = currency;
 	}
 	public String getCurrency() {
 		return currency;
@@ -32,5 +31,5 @@ public class Price {
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-	
+
 }

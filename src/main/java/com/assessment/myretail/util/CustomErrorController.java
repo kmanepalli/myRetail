@@ -1,6 +1,5 @@
 package com.assessment.myretail.util;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
@@ -14,32 +13,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-
 @RestController
 public class CustomErrorController implements ErrorController {
 
-    private static final String PATH = "/error";
+	private static final String PATH = "/error";
 
+	@Autowired
+	private ErrorAttributes errorAttributes;
 
-    @Autowired
-    private ErrorAttributes errorAttributes;
+	@RequestMapping(value = PATH)
+	ErrorJson error(HttpServletRequest request, HttpServletResponse response) {
+		// Appropriate HTTP response code (e.g. 404 or 500) is automatically set
+		// by Spring.
+		// Here we just define response body.
+		return new ErrorJson(response.getStatus(),
+				getErrorAttributes(request, false));
+	}
 
-    @RequestMapping(value = PATH)
-    ErrorJson error(HttpServletRequest request, HttpServletResponse response) {
-        // Appropriate HTTP response code (e.g. 404 or 500) is automatically set by Spring. 
-        // Here we just define response body.
-        return new ErrorJson(response.getStatus(), getErrorAttributes(request, false));
-    }
+	@Override
+	public String getErrorPath() {
+		return PATH;
+	}
 
-    @Override
-    public String getErrorPath() {
-        return PATH;
-    }
-
-    private Map<String, Object> getErrorAttributes(HttpServletRequest request, boolean includeStackTrace) {
-        RequestAttributes requestAttributes = new ServletRequestAttributes(request);
-        return errorAttributes.getErrorAttributes(requestAttributes, includeStackTrace);
-    }
+	private Map<String, Object> getErrorAttributes(HttpServletRequest request,
+			boolean includeStackTrace) {
+		RequestAttributes requestAttributes = new ServletRequestAttributes(
+				request);
+		return errorAttributes.getErrorAttributes(requestAttributes,
+				includeStackTrace);
+	}
 
 }
-

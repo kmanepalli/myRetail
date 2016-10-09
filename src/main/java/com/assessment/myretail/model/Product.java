@@ -4,16 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * Product Model
+ *
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
 	private long product_id;
-    private String general_description;
-    @Autowired
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Price price;
-    
+	private String general_description;
+	@Autowired
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private Price price;
+
 	public Product() {
-		
+
 	}
 
 	public long getId() {
@@ -39,5 +43,5 @@ public class Product {
 	public void setPrice(Price price) {
 		this.price = price;
 	}
-    
+
 }
