@@ -25,7 +25,7 @@ Steps to seed the data
   3. db.price.find() - This command should display all the records in test database
 
 ###Web application
-The web application hosting the REST API is build using spring boot. The final executable jar is uploaded in the repository.
+The web application hosting the REST API is build using spring boot. The final executable jar is uploaded in the [repository](build/libs).
 To run the web application, download the jar file and execute the following command
 
 1. java -jar myRetail-0.1.0.jar  
