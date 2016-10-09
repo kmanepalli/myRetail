@@ -18,7 +18,7 @@ Steps to seed the data
 
 1. Sample pricing data is available in the pricing-data.json
 2. Import the Pricing data
-  1. mongoimport --db test --collection price --drop --file <location of price-data.json>
+  1. mongoimport --db test --collection price --drop --file <price-data.json>
 3. Verify the import by using mongo console
   1. mongo - Start the mongo console
   2. use test - Switch the database to test
