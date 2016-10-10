@@ -36,7 +36,7 @@ public class ProductController {
 	PricingService pricingService;
 
 	@RequestMapping("/product/{id}")
-	public Product product(@PathVariable long id)
+	public Product product(@PathVariable Long id)
 			throws JsonProcessingException, IOException,
 			CannotRetrieveProductException {
 		Product product = productService.getProduct(id);
@@ -45,7 +45,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/product/{id}", headers = "Content-Type=application/json")
-	public String updatePrice(@PathVariable long id, @RequestBody Price price) {
+	public String updatePrice(@PathVariable Long id, @RequestBody Price price) {
 		if (pricingService.updatePrice(id, price)) {
 			return "Price updated Successfully";
 		}
@@ -59,7 +59,7 @@ public class ProductController {
 	 * @param id
 	 * @param product
 	 */
-	private void updateProductWithPrice(long id, Product product) {
+	private void updateProductWithPrice(Long id, Product product) {
 		try {
 			Price price = pricingService.getPrice(id);
 			product.setPrice(price);
